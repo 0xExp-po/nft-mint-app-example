@@ -8,6 +8,9 @@ const contractAddress = address.address;
 const contractAbi = abi.abi;
 const opensea_uri = `https://testnets.opensea.io/assets/goerli/${contractAddress}/`;
 
+const toWei = (num) => ethers.utils.parseEther(num.toString());
+const fromWei = (num) => ethers.utils.formatEther(num);
+
 const getEtheriumContract = () => {
   const connectedAccount = getGlobalState("connectedAccount");
 
@@ -61,8 +64,9 @@ const payToMint = async () => {
   try {
     if (!ethereum) return alert("Please install Metamask");
     const connectedAccount = getGlobalState("connectedAccount");
+    const cost = getGlobalState("cost");
     const contract = getEtheriumContract();
-    const amount = ethers.utils.parseEther("0.001");
+    const amount = ethers.utils.parseEther(cost);
 
     const transaction = await contract.payToMint({
       from: connectedAccount,
@@ -76,6 +80,7 @@ const payToMint = async () => {
     reportError(error);
   }
 };
+
 const setMaxSupply = async (new_maxSupply) => {
   try {
     if (!ethereum) return alert("Please install Metamask");
@@ -118,8 +123,14 @@ const loadNfts = async () => {
 
     const contract = getEtheriumContract();
     const nfts = await contract.getAllNFTs();
+    const ownerAccount = await contract.owner();
+    const cost = await contract.cost();
+    const maxSupply = await contract.maxSupply();
 
     setGlobalState("nfts", structuredNfts(nfts));
+    setGlobalState("ownerAccount", ownerAccount.toLowerCase());
+    setGlobalState("maxSupply", maxSupply.toNumber());
+    setGlobalState("cost", fromWei(cost));
   } catch (error) {
     reportError(error);
   }
@@ -147,6 +158,7 @@ export {
   connectWallet,
   payToMint,
   loadNfts,
+  getEtheriumContract,
   setMaxSupply,
   setCost,
 };
