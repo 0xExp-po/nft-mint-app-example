@@ -76,6 +76,41 @@ const payToMint = async () => {
     reportError(error);
   }
 };
+const setMaxSupply = async (new_maxSupply) => {
+  try {
+    if (!ethereum) return alert("Please install Metamask");
+    const connectedAccount = getGlobalState("connectedAccount");
+    const contract = getEtheriumContract();
+
+    const tx = await contract.setMaxsupply(new_maxSupply, {
+      from: connectedAccount,
+    });
+
+    const receipt = await tx.wait();
+
+    window.location.reload();
+  } catch (error) {
+    reportError(error);
+  }
+};
+
+const setCost = async (new_cost) => {
+  try {
+    if (!ethereum) return alert("Please install Metamask");
+    const connectedAccount = getGlobalState("connectedAccount");
+    const contract = getEtheriumContract();
+
+    const tx = await contract.setCost(toWei(new_cost), {
+      from: connectedAccount,
+    });
+
+    const receipt = await tx.wait();
+
+    window.location.reload();
+  } catch (error) {
+    reportError(error);
+  }
+};
 
 const loadNfts = async () => {
   try {
@@ -107,4 +142,11 @@ const structuredNfts = (nfts) =>
     }))
     .reverse();
 
-export { isWallectConnected, connectWallet, payToMint, loadNfts };
+export {
+  isWallectConnected,
+  connectWallet,
+  payToMint,
+  loadNfts,
+  setMaxSupply,
+  setCost,
+};
