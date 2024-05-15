@@ -2,6 +2,7 @@ import abi from "./abis/src/contracts/Minting.sol/Minting.json";
 import address from "./abis/contractAddress.json";
 import { getGlobalState, setGlobalState } from "./store";
 import { ethers } from "ethers";
+import { Container } from "postcss";
 
 const { ethereum } = window;
 const contractAddress = address.address;

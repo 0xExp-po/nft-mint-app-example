@@ -58,7 +58,7 @@ const Hero = () => {
       <div className="flex flex-col justify-center items-center mx-auto py-24">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-white text-5xl font-bold text-center">
-            {ownerAccount === connectedAccount ? (
+            {ownerAccount === connectedAccount && connectedAccount != "" ? (
               <span>Admin</span>
             ) : (
               <>
@@ -70,7 +70,7 @@ const Hero = () => {
           <p className="text-white font-semibold text-sm mt-3">
             Mint the hottest NFTs around.
           </p>
-          {ownerAccount === connectedAccount && (
+          {ownerAccount === connectedAccount && connectedAccount != "" && (
             <div className="py-2">
               <form onSubmit={handleSubmitMaxSupply} className="flex flex-col">
                 <label className="text-md text-white font-semibold py-1">
