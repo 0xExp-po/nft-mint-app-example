@@ -12,6 +12,10 @@ The NFT is deployed Sepolia test net.
 
 <!-- [![Watch the video](https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.png)](https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.mp4) -->
 
+<a href="https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.mp4">
+  <img src="https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.png" alt="Watch the video" width="600">
+</a>
+
 <video width="600" controls>
   <source src="https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.mp4" type="video/mp4">
   Your browser does not support the video tag.
