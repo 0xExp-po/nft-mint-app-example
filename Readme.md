@@ -10,4 +10,4 @@ The NFT is deployed Sepolia test net.
 
 ## Watch demo video
 
-[![Watch the video](https://github.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.gif)](https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.mp4)
+[![Watch the video](https://github.com/0xExp-po/nft-mint-app-example/blob/main/public/nft-minting-including-admin.gif)](https://raw.githubusercontent.com/0xExp-po/nft-mint-app-example/main/public/nft-minting-including-admin.mp4)
